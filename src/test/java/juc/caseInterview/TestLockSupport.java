@@ -1,5 +1,7 @@
-package juc.lockSupport;
+package juc.caseInterview;
 
+import juc.caseInterview.crossPrint.lockSupport.CharThread;
+import juc.caseInterview.crossPrint.lockSupport.NumThread;
 import org.junit.Test;
 /**
  * @Description 使用LockSupport的park和unpark方法实现线程唤醒和等待

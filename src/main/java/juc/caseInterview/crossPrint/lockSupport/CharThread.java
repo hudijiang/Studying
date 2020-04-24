@@ -1,4 +1,4 @@
-package juc.cas;
+package juc.caseInterview.crossPrint.lockSupport;
 
 import java.util.concurrent.locks.LockSupport;
 
@@ -9,11 +9,10 @@ import java.util.concurrent.locks.LockSupport;
  * @date 2020/4/24 00:55
  */
 public class CharThread extends Thread{
-    //是否准备运行
-    private volatile static ReadyToRun r ;
+    private volatile Thread t;
 
-    public void setR(ReadyToRun r){
-        this.r = r;
+    public void setT(Thread t){
+        this.t = t;
     }
 
     private final static char[] CSTR = "ABCDEFGHI".toCharArray();
@@ -21,10 +20,9 @@ public class CharThread extends Thread{
     @Override
     public void run() {
         for (int i=0;i<CSTR.length;i++) {
-            while (ReadyToRun.getStatus()== ReadyToRun.ReadyRunThread.T2) {//如果是
-            }
             System.out.print(CSTR[i]);
-            ReadyToRun.changerStatus(ReadyToRun.ReadyRunThread.T2);
+            LockSupport.unpark(t);//唤醒其他线程
+            LockSupport.park();//阻塞当前线程
         }
     }
 }

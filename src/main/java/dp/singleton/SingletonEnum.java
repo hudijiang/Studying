@@ -1,4 +1,4 @@
-package singleton;
+package dp.singleton;
 
 class Singleton{
 }

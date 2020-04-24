@@ -1,6 +1,4 @@
-package juc.transferQueue;
-
-import juc.cas.ReadyToRun;
+package juc.caseInterview.crossPrint.transferQueue;
 
 import java.util.concurrent.TransferQueue;
 

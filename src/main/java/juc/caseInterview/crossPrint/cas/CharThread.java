@@ -1,7 +1,4 @@
-package juc.lockSupport;
-
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.locks.LockSupport;
+package juc.caseInterview.crossPrint.cas;
 
 /**
  * @Description 打印字母的线程，用于交叉打印
@@ -10,10 +7,11 @@ import java.util.concurrent.locks.LockSupport;
  * @date 2020/4/24 00:55
  */
 public class CharThread extends Thread{
-    private volatile Thread t;
+    //是否准备运行
+    private volatile static ReadyToRun r ;
 
-    public void setT(Thread t){
-        this.t = t;
+    public void setR(ReadyToRun r){
+        this.r = r;
     }
 
     private final static char[] CSTR = "ABCDEFGHI".toCharArray();
@@ -21,9 +19,10 @@ public class CharThread extends Thread{
     @Override
     public void run() {
         for (int i=0;i<CSTR.length;i++) {
+            while (ReadyToRun.getStatus()== ReadyToRun.ReadyRunThread.T2) {//如果是
+            }
             System.out.print(CSTR[i]);
-            LockSupport.unpark(t);//唤醒其他线程
-            LockSupport.park();//阻塞当前线程
+            ReadyToRun.changerStatus(ReadyToRun.ReadyRunThread.T2);
         }
     }
 }

@@ -1,5 +1,7 @@
-package juc.transferQueue;
+package juc.caseInterview;
 
+import juc.caseInterview.crossPrint.transferQueue.CharThread;
+import juc.caseInterview.crossPrint.transferQueue.NumThread;
 import org.junit.Test;
 
 import java.util.concurrent.LinkedTransferQueue;

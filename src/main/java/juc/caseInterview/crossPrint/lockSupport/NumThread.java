@@ -1,4 +1,4 @@
-package juc.cas;
+package juc.caseInterview.crossPrint.lockSupport;
 
 import java.util.concurrent.locks.LockSupport;
 
@@ -9,11 +9,10 @@ import java.util.concurrent.locks.LockSupport;
  * @date 2020/4/24 00:54
  */
 public class NumThread extends  Thread{
-    //是否准备运行
-    private volatile static ReadyToRun r ;
+    private volatile Thread t;
 
-    public void setR(ReadyToRun r){
-        this.r = r;
+    public void setT(Thread t){
+        this.t = t;
     }
 
     private final static char[] NSTR = "123456789".toCharArray();
@@ -21,10 +20,9 @@ public class NumThread extends  Thread{
     @Override
     public void run() {
         for (int i=0;i<NSTR.length;i++) {
-            while (ReadyToRun.getStatus()== ReadyToRun.ReadyRunThread.T1) {//如果是
-            }
+            LockSupport.park();//阻塞
             System.out.print(NSTR[i]);
-            ReadyToRun.changerStatus(ReadyToRun.ReadyRunThread.T1);
+            LockSupport.unpark(t);//唤醒另一个线程
         }
     }
 }

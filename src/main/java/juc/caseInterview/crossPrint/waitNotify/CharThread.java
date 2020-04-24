@@ -1,4 +1,4 @@
-package juc.waitNotify;
+package juc.caseInterview.crossPrint.waitNotify;
 
 import java.util.concurrent.CountDownLatch;
 

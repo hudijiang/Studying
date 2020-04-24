@@ -1,5 +1,7 @@
-package juc.waitNotify;
+package juc.caseInterview;
 
+import juc.caseInterview.crossPrint.waitNotify.CharThread;
+import juc.caseInterview.crossPrint.waitNotify.NumThread;
 import org.junit.Test;
 
 import java.util.concurrent.CountDownLatch;

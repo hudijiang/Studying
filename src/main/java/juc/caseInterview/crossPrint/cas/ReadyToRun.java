@@ -1,4 +1,4 @@
-package juc.cas;
+package juc.caseInterview.crossPrint.cas;
 /**
  * @Description 线程共享数据类
  * @ClassName ReadyToRun

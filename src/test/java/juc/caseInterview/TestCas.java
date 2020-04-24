@@ -1,5 +1,8 @@
-package juc.cas;
+package juc.caseInterview;
 
+import juc.caseInterview.crossPrint.cas.CharThread;
+import juc.caseInterview.crossPrint.cas.NumThread;
+import juc.caseInterview.crossPrint.cas.ReadyToRun;
 import org.junit.Test;
 
 /**

@@ -1,4 +1,4 @@
-package singleton;
+package dp.singleton;
 
 import org.junit.Assert;
 import org.junit.Test;

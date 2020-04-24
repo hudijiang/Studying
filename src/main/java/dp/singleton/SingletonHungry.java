@@ -1,4 +1,4 @@
-package singleton;
+package dp.singleton;
 
 /**
  * @Description 单例模式

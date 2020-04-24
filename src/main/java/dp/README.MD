@@ -1,0 +1,3 @@
+设计模式
+singleton 单例模式不同实现方式
+strategy 策略模式
