@@ -4,16 +4,17 @@ import org.junit.Assert;
 import org.junit.Test;
 import java.util.HashMap;
 
-public class TestSingleton {
+public class TestSingletons {
     private static HashMap DATA = new HashMap();
     private static Integer SIZE = 100;
     @Test
     public void testGetInstanceHungry() throws  Exception{
 
         for (int i=0;i<=SIZE;i++) {
+            SingletonLazyHungry singletonLazyHungry = SingletonLazyHungry.getInstance();
             new Thread(
                     () -> {
-                        Assert.assertEquals(SingletonHungry.getInstance(),SingletonHungry.getInstance());
+                        Assert.assertEquals(singletonLazyHungry,SingletonHungry.getInstance());
                     }
             ).start();
 
@@ -22,11 +23,11 @@ public class TestSingleton {
 
     @Test
     public void testGetInstanceLazyHungry() throws  Exception{
-
+        SingletonLazyHungry lazyHungry = SingletonLazyHungry.getInstance();
         for (int i=0;i<=SIZE;i++) {
             new Thread(
                     () -> {
-                        Assert.assertEquals(SingletonLazyHungry.getInstance(),SingletonLazyHungry.getInstance());
+                        Assert.assertEquals(lazyHungry,SingletonLazyHungry.getInstance());
                     }
             ).start();
 
@@ -35,11 +36,11 @@ public class TestSingleton {
 
     @Test
     public void testGetInstanceEnum() throws  Exception{
-
+        SingletonEnum singletonEnum = SingletonEnum.getInstances();
         for (int i=0;i<=SIZE;i++) {
             new Thread(
                     () -> {
-                        Assert.assertEquals(SingletonEnum.INSTANCES.getInstances(),SingletonEnum.INSTANCES.getInstances());
+                        Assert.assertEquals(singletonEnum,SingletonEnum.getInstances());
                     }
             ).start();
 
