@@ -1,5 +1,7 @@
 package dp.singleton;
 
+import java.io.Serializable;
+
 /**
  * @Description 单例
  * 懒汉模式
@@ -7,7 +9,7 @@ package dp.singleton;
  * @author 胡迪江
  * @date 2020/4/13 21:38
  */
-public class SingletonLazyHungry {
+public class SingletonLazyHungry implements Serializable {
     private static volatile SingletonLazyHungry INSTANCE ;
     private SingletonLazyHungry() {
     }
