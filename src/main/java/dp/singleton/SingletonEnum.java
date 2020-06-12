@@ -1,17 +1,18 @@
 package dp.singleton;
 
-class Singleton{
-}
-
 public enum SingletonEnum {
     INSTANCES;
-    private Singleton instances;
+    private Object data;
 
-    SingletonEnum(){
-        instances = new Singleton();
+    public void setData(Object data) {
+        this.data = data;
     }
 
-    public Singleton getInstances(){
-        return instances;
+    public Object getData() {
+        return data;
+    }
+
+    public static SingletonEnum getInstances(){
+        return INSTANCES;
     }
 }
